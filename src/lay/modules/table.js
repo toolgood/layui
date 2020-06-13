@@ -693,8 +693,20 @@ layui.define(['laytpl', 'laypage', 'layer', 'form', 'util'], function(exports){
       
       //参数
       var data = $.extend(params, options.where);
-      if(options.contentType && options.contentType.indexOf("application/json") == 0){ //提交 json 格式
-        data = JSON.stringify(data);
+      
+      var headers = options.headers ||{};
+      var AntiforgeryToken = data["__RequestVerificationToken"];
+      if (AntiforgeryToken != undefined) {
+          headers["__RequestVerificationToken"] = AntiforgeryToken;
+      }
+
+      if (options.useRsa) {
+          data = $.encrypt(data);
+          options.contentType = "application/json";
+      }
+
+      if (options.contentType && options.contentType.indexOf("application/json") == 0) { //提交 json 格式
+          data = JSON.stringify(data);
       }
       
       that.loading();
@@ -707,6 +719,12 @@ layui.define(['laytpl', 'laypage', 'layer', 'form', 'util'], function(exports){
         ,dataType: 'json'
         ,headers: options.headers || {}
         ,success: function(res){
+          if (options.useRsa) {
+            if (res.ciphertext != undefined && res.ciphertext.length > 2) {
+                res.data =JSON.parse( $.decrypt(res.ciphertext,options.url));
+            }
+          }
+
           //如果有数据解析的回调，则获得其返回的数据
           if(typeof options.parseData === 'function'){
             res = options.parseData(res) || res;
