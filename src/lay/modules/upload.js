@@ -9,8 +9,8 @@
 layui.define('layer' , function(exports){
   "use strict";
   
-  var $ = layui.$
-  ,layer = layui.layer
+  //var $ = layui.$
+  var layer = layui.layer
   ,hint = layui.hint()
   ,device = layui.device()
 

@@ -9,8 +9,8 @@
 layui.define('form', function(exports){
   "use strict";
   
-  var $ = layui.$
-  ,form = layui.form
+  //var $ = layui.$
+  var form = layui.form
   ,layer = layui.layer
   
   //模块名

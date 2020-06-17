@@ -6,13 +6,13 @@
     
 */
 
-layui.define('jquery', function(exports){
+layui.define([], function(exports){
   "use strict";
   
-  var $ = layui.$
+  //var $ = layui.$
   
   //外部接口
-  ,util = {
+  var util = {
     //固定块
     fixbar: function(options){
       var ELEM = 'layui-fixbar', TOP_BAR = 'layui-fixbar-top'

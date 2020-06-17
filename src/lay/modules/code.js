@@ -6,10 +6,10 @@
     
  */
  
-layui.define('jquery', function(exports){
+layui.define([], function(exports){
   "use strict";
   
-  var $ = layui.$;
+ // var $ = layui.$;
   var about = 'http://www.layui.com/doc/modules/code.html'; //关于信息
   
   exports('code', function(options){

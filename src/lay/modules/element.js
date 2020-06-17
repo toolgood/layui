@@ -6,12 +6,12 @@
     
  */
  
-layui.define('jquery', function(exports){
+layui.define([], function(exports){
   "use strict";
   
-  var $ = layui.$
-  ,hint = layui.hint()
-  ,device = layui.device()
+ // var $ = layui.$
+ // ,hint = layui.hint()
+ var device = layui.device()
   
   ,MOD_NAME = 'element', THIS = 'layui-this', SHOW = 'layui-show'
   

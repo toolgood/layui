@@ -6,15 +6,15 @@
     
  */
  
-layui.define(['laytpl', 'laypage', 'layer', 'form', 'util'], function(exports){
+layui.define(['laytpl', 'laypage', 'layer', 'form'], function(exports){
   "use strict";
   
-  var $ = layui.$
-  ,laytpl = layui.laytpl
+  //var $ = layui.$
+  var laytpl = layui.laytpl
   ,laypage = layui.laypage
   ,layer = layui.layer
   ,form = layui.form
-  ,util = layui.util
+  //,util = layui.util
   ,hint = layui.hint()
   ,device = layui.device()
 

@@ -7,10 +7,11 @@
  */
  
  
-layui.define('jquery', function(exports){
+layui.define([], function(exports){
   "use strict";
   
-  var $ = layui.$, Flow = function(options){}
+  //var $ = layui.$, 
+  var Flow = function(options){}
   ,ELEM_MORE = 'layui-flow-more'
   ,ELEM_LOAD = '<i class="layui-anim layui-anim-rotate layui-anim-loop layui-icon ">&#xe63e;</i>';
 

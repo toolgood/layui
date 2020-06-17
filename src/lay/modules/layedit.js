@@ -9,10 +9,10 @@
 layui.define(['layer', 'form'], function(exports){
   "use strict";
   
-  var $ = layui.$
-  ,layer = layui.layer
+ // var $ = layui.$
+  var layer = layui.layer
   ,form = layui.form
-  ,hint = layui.hint()
+  //hint = layui.hint()
   ,device = layui.device()
   
   ,MOD_NAME = 'layedit', THIS = 'layui-this', SHOW = 'layui-show', ABLED = 'layui-disabled'

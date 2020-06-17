@@ -6,15 +6,15 @@
     
  */
  
-layui.define('jquery', function(exports){
+layui.define([], function(exports){
   "use strict";
   
-  var $ = layui.$
-  ,hint = layui.hint()
-  ,device = layui.device()
+  // var $ = layui.$
+  // ,hint = layui.hint()
+  // ,device = layui.device()
 
   //外部接口
-  ,carousel = {
+  var carousel = {
     config: {} //全局配置项
 
     //设置全局项

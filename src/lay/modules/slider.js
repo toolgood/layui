@@ -6,12 +6,12 @@
 
  */
 
-layui.define('jquery', function(exports){
+layui.define([], function(exports){
   "use strict";
-  var $ = layui.jquery
+ // var $ = layui.jquery
 
   //外部接口
-  ,slider = {
+ var slider = {
     config: {}
     ,index: layui.slider ? (layui.slider.index + 10000) : 0
 

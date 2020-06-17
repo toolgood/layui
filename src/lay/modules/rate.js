@@ -6,12 +6,12 @@
 
  */
 
-layui.define('jquery',function(exports){
+layui.define([],function(exports){
   "use strict";
-  var $ = layui.jquery
+ // var $ = layui.jquery
 
   //外部接口
-  ,rate = {
+ var rate = {
     config: {}
     ,index: layui.rate ? (layui.rate.index + 10000) : 0
 
