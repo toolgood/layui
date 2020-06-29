@@ -1682,41 +1682,63 @@ layui.define(['laytpl', 'laypage', 'layer', 'form'], function(exports){
       }
     };
     
-    //单元格展开事件
-    that.layBody.on('click', '.'+ ELEM_GRID_DOWN, function(e){
-      var othis = $(this)
-      ,td = othis.parent()
-      ,elemCell = td.children(ELEM_CELL);
+    // //单元格展开事件
+    // that.layBody.on('click', '.'+ ELEM_GRID_DOWN, function(e){
+    //   var othis = $(this)
+    //   ,td = othis.parent()
+    //   ,elemCell = td.children(ELEM_CELL);
 
-      that.tipsIndex = layer.tips([
-        '<div class="layui-table-tips-main" style="margin-top: -'+ (elemCell.height() + 16) +'px;'+ function(){
-          if(options.size === 'sm'){
-            return 'padding: 4px 15px; font-size: 12px;';
-          }
-          if(options.size === 'lg'){
-            return 'padding: 14px 15px;';
-          }
-          return '';
-        }() +'">'
-          ,elemCell.html()
-        ,'</div>'
-        ,'<i class="layui-icon layui-table-tips-c layui-icon-close"></i>'
-      ].join(''), elemCell[0], {
-        tips: [3, '']
-        ,time: -1
-        ,anim: -1
-        ,maxWidth: (device.ios || device.android) ? 300 : that.elem.width()/2
-        ,isOutAnim: false
-        ,skin: 'layui-table-tips'
-        ,success: function(layero, index){
-          layero.find('.layui-table-tips-c').on('click', function(){
-            layer.close(index);
-          });
-        }
-      });
+    //   that.tipsIndex = layer.tips([
+    //     '<div class="layui-table-tips-main" style="margin-top: -'+ (elemCell.height() + 16) +'px;'+ function(){
+    //       if(options.size === 'sm'){
+    //         return 'padding: 4px 15px; font-size: 12px;';
+    //       }
+    //       if(options.size === 'lg'){
+    //         return 'padding: 14px 15px;';
+    //       }
+    //       return '';
+    //     }() +'">'
+    //       ,elemCell.html()
+    //     ,'</div>'
+    //     ,'<i class="layui-icon layui-table-tips-c layui-icon-close"></i>'
+    //   ].join(''), elemCell[0], {
+    //     tips: [3, '']
+    //     ,time: -1
+    //     ,anim: -1
+    //     ,maxWidth: (device.ios || device.android) ? 300 : that.elem.width()/2
+    //     ,isOutAnim: false
+    //     ,skin: 'layui-table-tips'
+    //     ,success: function(layero, index){
+    //       layero.find('.layui-table-tips-c').on('click', function(){
+    //         layer.close(index);
+    //       });
+    //     }
+    //   });
       
-      layui.stope(e);
-    });
+    //   layui.stope(e);
+    // });
+
+        //显示更多tips
+        var indexLayer = 0;
+        that.layBody.on('mouseover mouseout', 'td', function() {
+          var othis = $(this),
+              elemCell = othis.children('.layui-table-cell');
+    
+          if (elemCell.prop('scrollWidth') > elemCell.outerWidth()) {
+            othis.attr("id", elemCell.attr("class").split(" ")[1]);
+    
+            if (event.type == "mouseover") {
+              indexLayer = layer.tips(elemCell.html(), elemCell[0], {
+                tips: [2, '#5da4ec'],
+                time: 0
+              });
+            }
+    
+            if (event.type == "mouseout") {
+              layer.close(indexLayer);
+            }
+          }
+        });
     
     //行工具条操作事件
     that.layBody.on('click', '*[lay-event]', function(){
